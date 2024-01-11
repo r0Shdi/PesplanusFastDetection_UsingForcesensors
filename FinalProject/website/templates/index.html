@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+ <meta charset="UTF-8">
+ <title>FlatFoot Detectio</title>
+ <link rel="stylesheet" href="static/index.css">
+</head>
+
+<body>
+  <header>
+    <ul>
+        <img src="../static/images/logo.png" class="logopng">
+    <a href="{{ url_for("Home") }}" class="title"> FlatFoot Detection</a>
+    </ul>
+    
+    <nav class="navigation">
+        <a href="#book">BOOK</a>
+        <a href="{{ url_for("PredictDeformity") }}">PredictDeformity</a>
+
+    </nav>
+
+</header>
+  <section class="main">
+    <h3>PredictDeformity</h3><br>
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="sensor1" placeholder="sensor1" required="required" /><br><br>
+      <input type="text" name="sensor2" placeholder="sensor2" required="required" /><br><br>
+      <input type="text" name="sensor3" placeholder="sensor3" required="required" /><br><br>
+      <input type="text" name="sensor4" placeholder="sensor4" required="required" /><br><br>
+      <input type="text" name="sensor5" placeholder="sensor5" required="required" /><br><br>
+    
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+      <br>
+      {{ prediction_text }}
+    
+    </section>
+
+    
+
+
+</body>
+</html>
